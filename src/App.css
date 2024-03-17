@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column; /* Ajusta según tu diseño */
+  align-items: center; /* Ajusta según tu diseño */
+  height: 100vh; /* Ajusta según tu diseño */
+  background-image: url(./assets/v1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;  
+}
+
+.container-text{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.container .main-text{
+  font-size: 52px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.container .main-text .italic-main-text{
+  font-style: italic;
+  
+}
+
+.container .second-text{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Montserrat",sans-serif;
+  font-size: 90px;
+  color: rgba(0, 255, 255, 0.918);
+  text-shadow: 3px 4px 4px rgba(0, 255, 255, 0.872);
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.container .second-text, .container .shadow{
+  display: inline-block;
+  margin: 0;
+}
+
+
+.container .shadow{
+  font-family: "Montserrat",sans-serif;
+  position: absolute;
+  top: 5%;
+  left: 160px;
+  z-index: 0;
+  -webkit-text-stroke: 0.5px rgb(255, 255, 255); /* Contorno de 2px de ancho en navegadores WebKit (Chrome, Safari, etc.) */
+  color: transparent; /* Hace que el color del texto sea transparente */
+  font-size: 90px; /* Ajusta el tamaño de la fuente según tu diseño */
+  letter-spacing: 1px;
+}
+
+.test{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente los elementos */
+  position: relative;
+}
+
+.oval-button {
+  width: 400px; /* Ancho del óvalo */
+  height: 60px; /* Altura del óvalo */
+  background-color: #000; /* Color de fondo */
+  border-radius: 30px 30px 30px 30px; /* Hace que el div tenga forma de círculo (óvalo si el ancho y el alto son diferentes) */
+  position: fixed; /* Permite posicionar el div en la parte inferior */
+  bottom: 10px; /* Lo coloca en la parte inferior */
+  left: 50%; /* Lo centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta para centrar horizontalmente */
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
+  border: 2px solid rgba(0, 255, 255, 0.872);
+   box-shadow: 1px 1px 4px 2px rgba(153, 0, 255, 0.872);
+  /*border-image: linear-gradient(42deg, #ff7e5f, #feb47b); /* Aplica el gradiente como un borde */
+  /*border-width: 5px; /* Ancho del borde */
+}
+
+.oval-button img{
+  width: 150px;
+  margin-top: 15px;
+  margin-left: 30px;
+
+}
+
+
+@property --bg-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+
+/* ----------- ANIMATIONS ------------------- */
+
+.oval-button {
+  /* add the animation, but pause it by default */
+  animation: spin 2.5s infinite linear ;
+  
+  /**
+   * Using `background-origin` we can create a “border” using two gradients. And to
+   * make the gradients better-looking, we use OKLCH.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+   * @see https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
+   */
+  background:
+    /* Background colors don’t work with `background-origin`, so use a gradient. */
+    linear-gradient(
+        to bottom,
+        oklch(0.1 0.2 240 / 0.95),
+        oklch(0.1 0.2 240 / 0.95)
+      )
+      padding-box, /* ends at inner border edges */
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue,
+        oklch(0.85 0.37 0) 0 0
+      )
+      border-box; /* extends to outer border edges */
+  
+  /* a clear border lets the background gradient shine through */
+  border: 2px solid transparent;
+
+  /* unpause the animation on hover */
+  &:hover {
+    animation-play-state: running;
+  }
+}
+
+
+/* Avion de papel volando */
+
+@-webkit-keyframes movimiento-diagonal {
+  0% {
+    left: -900px;
+    transform: scaleX(-1) translateY(200px);;
+  }
+  50% {
+    left: calc(49.90%);
+    transform: scaleX(-1);
+  }
+  50.1% {
+    left: calc(50% - 350px);
+    transform: scaleX(1) translateY(0px);
+  }
+  100% {
+    left: -100%;
+    transform: scaleX(1) translateY(-500px);
+  }
+}
+
+#derecha {
+  -webkit-animation-name: movimiento-diagonal;
+  -webkit-animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  /*para que vuelva a su posicion inicial */
+  z-index: 0;
+  width: 10px;
+  height: 10px;
+  background-image: image("../img/segadon.png");
+  color: #fff;
+  position: relative;
+}
+
+#derecha img{
+  width: 150px;
+  opacity: 70%;
+}
