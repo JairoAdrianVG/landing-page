@@ -55,9 +55,9 @@
   top: 5%;
   left: 160px;
   z-index: 0;
-  -webkit-text-stroke: 0.5px rgb(255, 255, 255); /* Contorno de 2px de ancho en navegadores WebKit (Chrome, Safari, etc.) */
-  color: transparent; /* Hace que el color del texto sea transparente */
-  font-size: 90px; /* Ajusta el tamaño de la fuente según tu diseño */
+  -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
+  color: transparent; 
+  font-size: 90px; 
   letter-spacing: 1px;
 }
 
@@ -66,24 +66,22 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente los elementos */
+  align-items: center; 
   position: relative;
 }
 
 .oval-button {
-  width: 400px; /* Ancho del óvalo */
-  height: 60px; /* Altura del óvalo */
-  background-color: #000; /* Color de fondo */
-  border-radius: 30px 30px 30px 30px; /* Hace que el div tenga forma de círculo (óvalo si el ancho y el alto son diferentes) */
-  position: fixed; /* Permite posicionar el div en la parte inferior */
-  bottom: 10px; /* Lo coloca en la parte inferior */
-  left: 50%; /* Lo centra horizontalmente */
-  transform: translateX(-50%); /* Ajusta para centrar horizontalmente */
-  z-index: 999; /* Asegura que esté por encima de otros elementos */
+  width: 400px;
+  height: 60px;
+  background-color: #000; 
+  border-radius: 30px 30px 30px 30px; 
+  position: fixed; 
+  bottom: 10px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  z-index: 999;
   border: 2px solid rgba(0, 255, 255, 0.872);
-   box-shadow: 1px 1px 4px 2px rgba(153, 0, 255, 0.872);
-  /*border-image: linear-gradient(42deg, #ff7e5f, #feb47b); /* Aplica el gradiente como un borde */
-  /*border-width: 5px; /* Ancho del borde */
+  box-shadow: 1px 1px 4px 2px rgba(153, 0, 255, 0.872);
 }
 
 .oval-button img{
@@ -93,6 +91,11 @@
 
 }
 
+
+/* ----------- ANIMATIONS ------------------- */
+
+
+/* Spinner border de logo*/
 
 @property --bg-angle {
   inherits: false;
@@ -108,21 +111,10 @@
 }
 
 
-/* ----------- ANIMATIONS ------------------- */
-
 .oval-button {
-  /* add the animation, but pause it by default */
   animation: spin 2.5s infinite linear ;
   
-  /**
-   * Using `background-origin` we can create a “border” using two gradients. And to
-   * make the gradients better-looking, we use OKLCH.
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
-   * @see https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
-   */
   background:
-    /* Background colors don’t work with `background-origin`, so use a gradient. */
     linear-gradient(
         to bottom,
         oklch(0.1 0.2 240 / 0.95),
@@ -135,10 +127,8 @@
       )
       border-box; /* extends to outer border edges */
   
-  /* a clear border lets the background gradient shine through */
   border: 2px solid transparent;
 
-  /* unpause the animation on hover */
   &:hover {
     animation-play-state: running;
   }
@@ -153,7 +143,7 @@
     transform: scaleX(-1) translateY(200px);;
   }
   50% {
-    left: calc(49.90%);
+    left: calc(49.50%);
     transform: scaleX(-1);
   }
   50.1% {
@@ -167,10 +157,10 @@
 }
 
 #derecha {
-  -webkit-animation-name: movimiento-diagonal;
-  -webkit-animation-duration: 8s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
+  animation-name: movimiento-diagonal;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
   /*para que vuelva a su posicion inicial */
   z-index: 0;
   width: 10px;
@@ -183,4 +173,64 @@
 #derecha img{
   width: 150px;
   opacity: 70%;
+}
+
+
+@media screen and (max-width: 767px) {
+  .container-text {
+    margin-top: 80px;
+  }
+  
+  .container .main-text {
+    font-size: 30px;
+  }
+  
+  .container .second-text {
+    font-size: 50px;
+  }
+  
+  .container .shadow {
+    font-size: 50px;
+    left: 65px;
+  }
+  
+  .oval-button {
+    width: 60%; /* Ancho del óvalo en dispositivos móviles */
+    max-width: 300px; /* Ancho máximo del óvalo en dispositivos móviles */
+    height: 50px; /* Altura del óvalo en dispositivos móviles */
+    border-radius: 25px; /* Bordes redondeados */
+    bottom: 40px; /* Distancia desde la parte inferior en dispositivos móviles */
+    font-size: 16px; /* Tamaño de fuente en dispositivos móviles */
+  }
+  
+  .oval-button img {
+    width: 80px; /* Tamaño de la imagen en dispositivos móviles */
+    margin-top: 15px; /* Margen superior de la imagen en dispositivos móviles */
+    margin-left: 20px; /* Margen izquierdo de la imagen en dispositivos móviles */
+  }
+
+  #derecha img{
+    width: 100px;
+  }
+
+  
+@keyframes movimiento-diagonal {
+  0% {
+    left: -900px;
+    transform: scaleX(-1) translateY(200px);;
+  }
+  50% {
+    left: calc(35%);
+    transform: scaleX(-1);
+  }
+  50.1% {
+    left: calc(20%);
+    transform: scaleX(1) translateY(0px);
+  }
+  100% {
+    left: -100%;
+    transform: scaleX(1) translateY(-500px);
+  }
+}
+
 }

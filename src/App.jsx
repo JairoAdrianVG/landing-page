@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='container'>
         <section className='container-text'>
-        <h1 className='main-text'> <span className='italic-main-text'>GRACIAS</span> POR AYUDARNOS </h1>
+        <h1 className='main-text'> <span className='italic-main-text'>¡GRACIAS</span> POR AYUDARNOS </h1>
         <h2 className='main-text'>A VER LO QUE ES </h2>
         <article className='test'>
           <h1 className='second-text'>POSIBLE!</h1>
@@ -18,10 +18,8 @@ function App() {
           <img src={avion}/>
         </div>
 
-        <div className='button-box'>
         <div className='oval-button'> <img src={aviancaLogo}/><img src={aviancaLogo}/> </div>
 
-        </div>
       </div>
   )
 }
