@@ -1,7 +1,7 @@
 import './App.css'
 import aviancaLogo from './assets/AVIANCA-LOGO-BLC.png'
-import avion from './assets/avion-rojo.png'
-
+import avion from './assets/Avion-Rojo-Avianca.png'
+import kodigoLogo from './assets/imagekodigo.png'
 function App() {
 
   return (
@@ -18,7 +18,7 @@ function App() {
           <img src={avion}/>
         </div>
 
-        <div className='oval-button'> <img src={aviancaLogo}/><img src={aviancaLogo}/> </div>
+        <div className='oval-button'> <img src={kodigoLogo}/><img src={aviancaLogo}/> </div>
 
       </div>
   )

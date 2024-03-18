@@ -2,9 +2,9 @@
 
 .container {
   display: flex;
-  flex-direction: column; /* Ajusta según tu diseño */
-  align-items: center; /* Ajusta según tu diseño */
-  height: 100vh; /* Ajusta según tu diseño */
+  flex-direction: column;
+  align-items: center; 
+  height: 100vh; 
   background-image: url(./assets/v1.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -53,12 +53,12 @@
   font-family: "Montserrat",sans-serif;
   position: absolute;
   top: 5%;
-  left: 160px;
+  left: 168px;
   z-index: 0;
   -webkit-text-stroke: 0.5px rgb(255, 255, 255); 
   color: transparent; 
   font-size: 90px; 
-  letter-spacing: 1px;
+  letter-spacing: 0px;
 }
 
 .test{
@@ -86,7 +86,7 @@
 
 .oval-button img{
   width: 150px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 30px;
 
 }
@@ -120,12 +120,12 @@
         oklch(0.1 0.2 240 / 0.95),
         oklch(0.1 0.2 240 / 0.95)
       )
-      padding-box, /* ends at inner border edges */
+      padding-box,
     conic-gradient(
         from var(--bg-angle) in oklch longer hue,
         oklch(0.85 0.37 0) 0 0
       )
-      border-box; /* extends to outer border edges */
+      border-box; 
   
   border: 2px solid transparent;
 
@@ -165,7 +165,6 @@
   z-index: 0;
   width: 10px;
   height: 10px;
-  background-image: image("../img/segadon.png");
   color: #fff;
   position: relative;
 }
@@ -191,22 +190,23 @@
   
   .container .shadow {
     font-size: 50px;
-    left: 60px;
+    left: 70px;
+    letter-spacing: 0px;
   }
   
   .oval-button {
-    width: 60%; /* Ancho del óvalo en dispositivos móviles */
-    max-width: 300px; /* Ancho máximo del óvalo en dispositivos móviles */
-    height: 50px; /* Altura del óvalo en dispositivos móviles */
-    border-radius: 25px; /* Bordes redondeados */
-    bottom: 40px; /* Distancia desde la parte inferior en dispositivos móviles */
-    font-size: 16px; /* Tamaño de fuente en dispositivos móviles */
+    width: 60%; 
+    max-width: 300px; 
+    height: 50px;
+    border-radius: 25px;
+    bottom: 40px; 
+    font-size: 16px; 
   }
   
   .oval-button img {
-    width: 80px; /* Tamaño de la imagen en dispositivos móviles */
-    margin-top: 15px; /* Margen superior de la imagen en dispositivos móviles */
-    margin-left: 20px; /* Margen izquierdo de la imagen en dispositivos móviles */
+    width: 80px; 
+    margin-top: 15px; 
+    margin-left: 20px; 
   }
 
   #derecha img{
